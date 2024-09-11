@@ -1,0 +1,153 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+// Enum to represent cab types
+enum CabType {
+    NORMAL, AC, LUXURY
+}
+
+// Class to represent employee information
+class Employee {
+    private String name;
+    private String address;
+    private String designation;
+
+    public Employee(String name, String address, String designation) {
+        this.name = name;
+        this.address = address;
+        this.designation = designation;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getDesignation() {
+        return designation;
+    }
+}
+
+// Class to represent a cab
+class Cab {
+    private String cabNumber;
+    private CabType cabType;
+    private double costPerKm;
+
+    public Cab(String cabNumber, CabType cabType, double costPerKm) {
+        this.cabNumber = cabNumber;
+        this.cabType = cabType;
+        this.costPerKm = costPerKm;
+    }
+
+    public String getCabNumber() {
+        return cabNumber;
+    }
+
+    public CabType getCabType() {
+        return cabType;
+    }
+
+    public double getCostPerKm() {
+        return costPerKm;
+    }
+}
+
+// Class to represent trips
+class Trip {
+    private Employee employee;
+    private Cab cab;
+    private double distance;
+    private double cost;
+
+    public Trip(Employee employee, Cab cab, double distance) {
+        this.employee = employee;
+        this.cab = cab;
+        this.distance = distance;
+        this.cost = distance * cab.getCostPerKm();
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public Cab getCab() {
+        return cab;
+    }
+
+    public double getDistance() {
+        return distance;
+    }
+
+    public double getCost() {
+        return cost;
+    }
+}
+
+// Class to manage trips and generate reports
+class TripManager {
+    private List<Trip> trips;
+
+    public TripManager() {
+        this.trips = new ArrayList<>();
+    }
+
+    public void addTrip(Trip trip) {
+        trips.add(trip);
+    }
+
+    // Other methods for generating reports
+
+    public double getTotalCostPerMonth() {
+        double totalCost = 0;
+        for (Trip trip : trips) {
+            totalCost += trip.getCost();
+        }
+        return totalCost;
+    }
+
+    public double getTotalCostPerEmployee(Employee employee) {
+        double totalCost = 0;
+        for (Trip trip : trips) {
+            if (trip.getEmployee().equals(employee)) {
+                totalCost += trip.getCost();
+            }
+        }
+        return totalCost;
+    }
+
+    // Other report generation methods
+}
+
+public class DoorStepDropApp {
+    public static void main(String[] args) {
+        // Initialize employees
+        Employee employeeA = new Employee("A", "HomeA", "Manager");
+        Employee employeeB = new Employee("B", "HomeB", "Developer");
+
+        // Initialize cabs
+        Cab cab1 = new Cab("C1", CabType.NORMAL, 5.0);
+        Cab cab2 = new Cab("C2", CabType.AC, 8.0);
+
+        // Create a TripManager
+        TripManager tripManager = new TripManager();
+
+        // Record trips
+        tripManager.addTrip(new Trip(employeeA, cab1, 10.0));
+        tripManager.addTrip(new Trip(employeeB, cab2, 15.0));
+
+        // Generate reports
+        double totalCostPerMonth = tripManager.getTotalCostPerMonth();
+        System.out.println("Total Cost per Month: $" + totalCostPerMonth);
+
+        double totalCostForEmployeeA = tripManager.getTotalCostPerEmployee(employeeA);
+        System.out.println("Total Cost for Employee A: $" + totalCostForEmployeeA);
+
+        // Other report generation examples
+    }
+}

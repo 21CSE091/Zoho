@@ -1,0 +1,111 @@
+Given an array of meeting time intervals where intervals[i] = [starti, endi], determine if a person could attend all meetings.
+
+Example 1:
+
+Input: intervals = [[0,30],[5,10],[15,20]] Output: false
+
+Example 2:
+
+Input: intervals = [[7,10],[2,4]] Output: true
+
+Input Format
+
+Input is list of lines, First line is number of arrays, followed by each array (2 elements separated by space)
+
+Example 1 : 3 0 30 5 10 15 20
+
+Example 2: 2 7 10 2 4
+
+Constraints
+
+0 <= intervals.length <= 104 intervals[i].length == 2 0 <= starti < endi <= 106
+
+Output Format
+
+true / false
+
+Sample Input 0
+
+3
+0 30
+5 10
+15 20
+Sample Output 0
+
+false
+Explanation 0
+
+First meeting starts at 0 and continues for 30 mins, Second meeting starts at 5 mins after first meeting, Third meeting starts 10 mins after first meeting. Since first meeting goes on till 30 mins, the person cannot attend all meetings.
+
+Sample Input 1
+
+2
+7 10
+2 4
+Sample Output 1
+
+true
+Explanation 1
+
+Meeting 1 - 7 to 10 Meeting 2 - 2 to 4 since they don't overlap, a person can attend both meetings.
+
+
+Program:
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    /*
+     * Complete the 'solution' function below.
+     *
+     * The function is expected to return a BOOLEAN.
+     * The function accepts 2D_INTEGER_ARRAY intervals as parameter.
+     */
+
+    public static boolean solution(List<List<Integer>> intervals) {
+    // Your logic goes here
+
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int n = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<List<Integer>> intervals = new ArrayList<>();
+
+        IntStream.range(0, n).forEach(i -> {
+            try {
+                intervals.add(
+                    Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+                        .map(Integer::parseInt)
+                        .collect(toList())
+                );
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        boolean result = Result.solution(intervals);
+
+        bufferedWriter.write(String.valueOf(result ? 1 : 0));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}

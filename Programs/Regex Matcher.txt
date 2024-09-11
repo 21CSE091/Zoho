@@ -1,0 +1,113 @@
+Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:
+
+'.' Matches any single character.
+
+'*' Matches one or more of the preceding element. The matching should cover the entire input string (not partial).
+
+Input Format
+
+Line1: Word to match Line2: Pattern to check
+
+Constraints
+
+1 <= s.length <= 10
+
+1 <= p.length <= 10
+
+s contains only lowercase English letters.
+
+p contains only lowercase English letters, '.', and '*'.
+
+It is guaranteed for each appearance of the character '*', there will be a previous valid character to match.
+
+Output Format
+
+true or false
+
+Sample Input 0
+
+aa
+a
+Sample Output 0
+
+false
+Explanation 0
+
+"a" does not match the entire string "aa"
+
+Sample Input 1
+
+aa
+a*
+Sample Output 1
+
+true
+Explanation 1
+
+'*' means zero or more of the preceding element, 'a'. Therefore, by repeating 'a' once, it becomes "aa".
+
+Sample Input 2
+
+ab
+.*
+Sample Output 2
+
+true
+Explanation 2
+
+"." means "zero or more () of any character (.)".
+
+
+
+Program:
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    /*
+     * Complete the 'RegexMatcher' function below.
+     *
+     * The function is expected to return a BOOLEAN.
+     * The function accepts following parameters:
+     *  1. STRING word
+     *  2. STRING pattern
+     */
+
+    public static boolean RegexMatcher(String word, String pattern) {
+
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        // Write your solution logic here
+
+        String word = bufferedReader.readLine();
+
+        String pattern = bufferedReader.readLine();
+
+        boolean result = Result.RegexMatcher(word, pattern);
+
+        // Change the result to a string
+
+        bufferedWriter.write(String.valueOf(result ? 1 : 0));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}

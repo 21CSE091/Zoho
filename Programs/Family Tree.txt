@@ -1,0 +1,68 @@
+Given a Family Tree and a name, find their last known descendants. A last descendant is one who doesn't have any more descendants. If there are more than one last descendants present, print all of them. If no last known descendants are found, print their siblings. If neither descendant or sibling exists, print "no-one".
+
+Note: You are expected to parse the input string and construct the data as required for your logic.
+
+Input Format
+
+One line of string inputs, comma and paranthesis separated. First input is the name whose descendants have to be found. Second to last is array of names and parent names, semicolon separated.
+
+Constraints
+
+2<= inputStr.Length <= 200
+
+Output Format
+
+Comma separated strings that is either list of last known descendants, or siblings or simply "no-one"
+
+Sample Input 0
+
+Steffon,[Robert:Steffon],[Stannis:Steffon],[Jeoffrey:Robert]
+Sample Output 0
+
+Jeoffrey,Stannis
+Explanation 0
+
+The family tree can be imagined like this, Steffon |->Stannis |->Robert |->Jeoffrey
+
+Here Stannis and Joeffrey have no children, so they are the last known descendants of Steffon.
+
+
+Program:
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    /*
+     * Complete the 'solution' function below.
+     *
+     * The function accepts STRING inputStr as parameter.
+     */
+
+    public static void solution(String inputStr) {
+    // Your logic goes here
+
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        String inputStr = bufferedReader.readLine();
+
+        Result.solution(inputStr);
+
+        bufferedReader.close();
+    }
+}

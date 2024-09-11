@@ -1,0 +1,90 @@
+Given two strings str1 and str2, write a function to compute the Levenshtein distance between them. The Levenshtein distance is defined as the minimum number of single-character edits (insertions, deletions, or substitutions) required to change one string into the other.
+
+Example 1: "kitten", "sitting" should return 3, as changing index 0 ('k' to 's'), 4 ('e' to 'i') and 6 (adding 'g') are enough to transform the strings.
+
+Example 2: "flaw", "lawn" should return 2, as changing index 0 (dropping 'f') and 3 (adding 'n') is enough to transform the strings.
+
+Input Format
+
+str1 : a string str2 : a string
+
+Constraints
+
+(1 <= len(str1), len(str2) <= 1000)
+
+Output Format
+
+Return an integer, representing the Levenshtein distance between str1 and str2.
+
+Sample Input 0
+
+kitten sitting
+Sample Output 0
+
+3
+Explanation 0
+
+Minimum number of edits required: 3 Substituting 'k' with 's' - 1 Substituting 'e' with 'i' - 1 Inserting 'g' - 1
+
+Sample Input 1
+
+flaw lawn
+Sample Output 1
+
+2
+Explanation 1
+
+Minimum number of edits - 2 Removing 'f' - 1 Inserting 'n' - 1
+
+
+Program:
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    /*
+     * Complete the 'levenshtein_distance' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. STRING str1
+     *  2. STRING str2
+     */
+
+    public static int levenshtein_distance(String str1, String str2) {
+    // Calculate Levenshtein distance and return the number
+
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+
+        String str1 = firstMultipleInput[0];
+
+        String str2 = firstMultipleInput[1];
+
+        int dist = Result.levenshtein_distance(str1, str2);
+
+        bufferedWriter.write(String.valueOf(dist));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}

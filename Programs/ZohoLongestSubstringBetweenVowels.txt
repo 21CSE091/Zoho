@@ -1,0 +1,43 @@
+import java.io.*;
+import java.util.*;
+
+public class ZohoLongestSubStringBetweenVowels {
+    public static void main(String[] args) {
+        String input = "abracadabra"; // Change this to your desired input
+
+        String longestConsonantSubstring = findLongestConsonantSubstring(input);
+
+        System.out.println("Input: " + input);
+        System.out.println("Longest Consonant Substring: " + longestConsonantSubstring);
+    }
+
+    public static String findLongestConsonantSubstring(String input) {
+        int start = 0;
+        int maxLength = 0;
+        int currentLength = 0;
+        int currentStart = 0;
+
+        for (int i = 0; i < input.length(); i++) {
+            char currentChar = input.charAt(i);
+
+            if (isConsonant(currentChar)) {
+                currentLength++;
+
+                if (currentLength > maxLength) {
+                    maxLength = currentLength;
+                    start = currentStart;
+                }
+            } else {
+                currentLength = 0;
+                currentStart = i + 1;
+            }
+        }
+
+        return input.substring(start, start + maxLength);
+    }
+
+    public static boolean isConsonant(char ch) {
+        ch = Character.toLowerCase(ch);
+        return !(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
+    }
+}

@@ -1,0 +1,124 @@
+Write a program that prints a diamond-pattern from the given number. Use "*" to fill the spaces.
+
+Eg: 
+Input: 
+3
+
+Output:
+**3**
+*323*
+32123
+*323*
+**3**
+Input Format
+
+Input will contain one integer.
+
+Constraints
+
+0 < n < 10
+
+Output Format
+
+Print diamond shaped pattern where the outer most layer is the given number, until the inner most layer is 1.
+
+Sample Input 0
+
+3
+Sample Output 0
+
+**3**
+*323*
+32123
+*323*
+**3**
+
+
+Program:
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    /*
+     * Complete the 'solution' function below.
+     *
+     * The function accepts STRING n as parameter.
+     */
+
+    public static void solution(String n) {
+    // Print the pattern logic goes here
+    int num=Integer.parseInt(n);
+        for (int i = 1; i <= num; i++) {
+            // Print spaces
+            for (int j = 1; j <= num - i; j++) {
+                System.out.print("*");
+            }
+
+            // Print numbers in decreasing order
+            for (int j = num; j <= num; j--) {
+                System.out.print(j);
+            }
+
+            // Print numbers in increasing order
+            for (int j = 2; j <= num; j++) {
+                System.out.print(j);
+            }
+
+            // Print spaces
+            for (int j = 1; j <= num - i; j++) {
+                System.out.print("*");
+            }
+
+            System.out.println();
+        }
+
+        // Print bottom half of the diamond
+        for (int i = num - 1; i >= 1; i--) {
+            // Print spaces
+            for (int j = 1; j <= num - i; j++) {
+                System.out.print("*");
+            }
+
+            // Print numbers in decreasing order
+            for (int j = i; j >= 1; j--) {
+                System.out.print(j);
+            }
+
+            // Print numbers in increasing order
+            for (int j = 2; j <= i; j++) {
+                System.out.print(j);
+            }
+
+            // Print spaces
+            for (int j = 1; j <= num - i; j++) {
+                System.out.print("*");
+            }
+
+            System.out.println();
+
+    }
+
+}
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        String n = bufferedReader.readLine();
+
+        Result.solution(n);
+
+        bufferedReader.close();
+    }
+}

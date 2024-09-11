@@ -1,0 +1,24 @@
+import java.util.*;
+import java.io.*;
+
+public class ZohoDateDifference {
+public static void main(String args[]) {
+	Scanner sc=new Scanner(System.in);
+	System.out.print("From:");
+	String from=sc.nextLine();
+	System.out.print("End:");
+	String end=sc.nextLine();
+	String from1[]=from.split("-");
+	String end1[]=end.split("-");
+	int d1=Integer.parseInt(from1[0]);
+	int m1=Integer.parseInt(from1[1]);
+	int y1=Integer.parseInt(from1[2]);
+	int d2=Integer.parseInt(end1[0]);
+	int m2=Integer.parseInt(end1[1]);
+	int y2=Integer.parseInt(end1[2]);
+	int ddiff=d2-d1;
+	int mdiff=m2-m1;
+	int ydiff=y2-y1;
+	System.out.print(ydiff+" years, "+mdiff+" months, "+ddiff+" days");
+}
+}

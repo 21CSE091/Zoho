@@ -1,0 +1,28 @@
+ public class NumberPattern {
+    public static void main(String[] args) {
+        int n = 5; // Change this value to generate a larger or smaller pattern
+        printPattern(n);
+    }
+    public static void printPattern(int n) {
+        int[] lineStart = new int[n];
+        lineStart[0] = 1;
+        // Calculate the starting numbers for each line
+        for (int i = 1; i < n; i++) {
+            lineStart[i] = lineStart[i - 1] + (n - i + 1);
+        }
+        // Print the pattern
+        for (int i = 0; i < n; i++) {
+            // Print leading spaces
+            for (int j = 0; j < (n - i - 1) * 3; j++) {
+                System.out.print(" ");
+            }
+            // Print numbers for the current line
+            int num = lineStart[i];
+            for (int j = 0; j <= i; j++) {
+                System.out.printf("%3d", num);
+                num = num - (n - i + j);
+            }
+            System.out.println();
+        }
+    }
+}
